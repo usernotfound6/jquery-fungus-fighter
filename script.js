@@ -15,7 +15,7 @@ function onReady() {
   $(".dragon-blade").on("click", handleDragonBlade);
   $(".star-fire").on("click", handleStarFire);
 
-
+}
   // attacks
   function arcaneScepter() {
     console.log("scepter button pressed");
@@ -50,4 +50,4 @@ function onReady() {
   // - Handle events that ->
   // - Updates state which is ->
   // - Rendered to the DOM
-}
+
