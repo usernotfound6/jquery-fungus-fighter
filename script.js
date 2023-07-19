@@ -14,6 +14,8 @@ function onReady() {
   $(".entangle").on("click", handleEntangle);
   $(".dragon-blade").on("click", handleDragonBlade);
   $(".star-fire").on("click", handleStarFire);
+  handleFungus();
+  handleAP();
 }
 // attacks
 function arcaneScepter() {
@@ -21,13 +23,15 @@ function arcaneScepter() {
   fungusHP -= 14;
   myAP -= 12;
 
-  if (fungusHP <= 0) fungusHP = 0
+  if (fungusHP <= 0) fungusHP = 0;
 
   if (myAP <= 12) {
     myAP = 0;
   }
   renderHP();
   renderAP();
+  handleFungus();
+  handleAP();
 }
 
 function handleEntangle() {
@@ -35,13 +39,15 @@ function handleEntangle() {
   fungusHP -= 9;
   myAP -= 23;
 
-  if (fungusHP <= 0) fungusHP = 0
+  if (fungusHP <= 0) fungusHP = 0;
 
   if (myAP <= 23) {
     myAP = 0;
   }
   renderHP();
   renderAP();
+  handleFungus();
+  handleAP();
 }
 
 function handleDragonBlade() {
@@ -49,13 +55,15 @@ function handleDragonBlade() {
   fungusHP -= 47;
   myAP -= 38;
 
-  if (fungusHP <= 0) fungusHP = 0
+  if (fungusHP <= 0) fungusHP = 0;
 
   if (myAP <= 38) {
     myAP = 0;
   }
   renderHP();
   renderAP();
+  handleFungus();
+  handleAP();
 }
 
 function handleStarFire() {
@@ -63,13 +71,15 @@ function handleStarFire() {
   fungusHP -= 25;
   myAP -= 33;
 
-  if (fungusHP <= 0) fungusHP = 0
+  if (fungusHP <= 0) fungusHP = 0;
 
   if (myAP <= 33) {
     myAP = 0;
   }
   renderHP();
   renderAP();
+  handleFungus();
+  handleAP();
 }
 
 // render health and attack power
@@ -83,6 +93,23 @@ function renderAP() {
   $(".ap-text").append(`<span id = "AP">${myAP} AP </span`);
 }
 
+// functions for defeat
+function handleFungus() {
+  if (fungusHP <= 0) {
+    console.log("he is vanquished");
+    fungusHP = 0;
+    $(".walk").replaceWith('<div class="freaky-fungus dead"></div>');
+  }
+}
+
+function handleAP() {
+  if (myAP <= 0) {
+    console.log("out of juice");
+    myAP = 0;
+    $(".walk").replaceWith('<div class="freaky-fungus jump"></div>');
+    $(".attack-btn").attr("disabled", true);
+  }
+}
 // Make sure you check the index.html file!
 // There are lots of buttons and things ready for you to hook into here!
 
