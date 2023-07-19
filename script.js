@@ -10,11 +10,16 @@ $(document).ready(onReady);
 
 function onReady() {
     
-     $('#attack-btn arcane-scepter').on('click', arcaneScepter);
+     $('.arcane-scepter').on('click', arcaneScepter)
+     $('.entangle').on('click', handleEntangle)
+     $('.dragon-blade').on('click', handleDragonBlade)
+     $('.star-fire').on('click', handleStarFire)
+     
 
      function arcaneScepter() {
-        fungusHP - 14;
-        myAP - 12;
+         console.log("button pressed");
+         fungusHP -= 14;
+         myAP -= 12;
      }
 
 
